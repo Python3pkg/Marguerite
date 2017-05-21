@@ -54,7 +54,7 @@ class SQLAlchemyAccessor(AbstractAccessor):
         rows = [dict(x) for x in exec_result if x]
         for row in rows:
             struct = self.structure.struct.copy()
-            for k, v in row.items():
+            for k, v in list(row.items()):
                 struct[k] = v
             new_rows += [struct]
         return new_rows

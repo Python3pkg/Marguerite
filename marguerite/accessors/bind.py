@@ -5,7 +5,7 @@ def replacer(query, key, value):
 
 def bind(order, params = {}):
     query = order
-    for k, v in params.items():
+    for k, v in list(params.items()):
         if not k or not v:
             continue
         if isinstance(v, list):

@@ -14,7 +14,7 @@ class StructureAssertion(object):
             raise NotImplementedError("Order is not defined")
 
     def assert_order_key_value(self):
-        for k, v in self.orders.items():
+        for k, v in list(self.orders.items()):
             if not isinstance(k, str):
                 raise RuntimeError("should be {} is string.".format(k))
 
@@ -46,7 +46,7 @@ class AbstractStructure(StructureAssertion):
         if self.orders.__len__() <= 0:
             raise NotImplementedError("Order is not defined")
 
-        for k, v in self.orders.items():
+        for k, v in list(self.orders.items()):
             if not isinstance(k, str):
                 raise RuntimeError("should be {} is string.".format(k))
 
